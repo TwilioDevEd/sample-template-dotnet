@@ -1,0 +1,7 @@
+{
+   "Twilio": {
+       "AccountSid": "Your Account SID",
+       "AuthToken": "Your Auth Token",
+       "PhoneNumber": "A Twilio Phone Number"
+    }
+}
