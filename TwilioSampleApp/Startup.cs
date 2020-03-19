@@ -58,7 +58,7 @@ namespace TwilioSampleApp
                 endpoints.MapControllerRoute(
                     name: "message",
                     pattern: "send-sms",
-                    defaults: new {controller = "Message", action = "Send"});
+                    defaults: new {controller = "Message", action = "SendAsync"});
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

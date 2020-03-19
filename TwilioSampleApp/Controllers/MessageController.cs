@@ -22,12 +22,12 @@ namespace TwilioSampleApp.Controllers
         // POST to /send-sms
         [HttpPost]
         [AllowAnonymous]
-        public async Task<MessageResultViewModel> Send([FromBody] MessageRequestViewModel data)
+        public async Task<MessageResultDataModel> SendAsync([FromBody] MessageRequestDataModel data)
         {
             try
             {
                 var sid = await _sender.SendSms(data.To, data.Body);
-                return new MessageResultViewModel
+                return new MessageResultDataModel
                 {
                     Status = "success",
                     Message = $"SMS sent to {data.To}. Message SID: {sid}"
@@ -36,7 +36,7 @@ namespace TwilioSampleApp.Controllers
             catch (TwilioException exception)
             {
                 _logger.LogError(exception, "Error sending SMS");
-                return new MessageResultViewModel
+                return new MessageResultDataModel
                 {
                     Status = "error",
                     Message = "Failed to send SMS. Check server logs for more details."

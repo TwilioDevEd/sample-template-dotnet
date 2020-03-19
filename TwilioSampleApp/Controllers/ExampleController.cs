@@ -6,9 +6,9 @@ namespace TwilioSampleApp.Controllers
     public class ExampleController : ControllerBase
     {
         [HttpGet]
-        public ExampleViewModel Get()
+        public ExampleDataModel Get()
         {
-            return new ExampleViewModel { Value = true};
+            return new ExampleDataModel { Value = true};
         }
     }
 }
