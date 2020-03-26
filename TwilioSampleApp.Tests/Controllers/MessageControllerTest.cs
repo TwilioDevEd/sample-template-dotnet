@@ -21,7 +21,7 @@ namespace TwilioSampleApp.Tests.Controllers
             var controller = new MessageController(mockSender.Object, mockLogger.Object);
 
             // Act
-            var result = await controller.SendAsync(new MessageRequestDataModel {To = "1111", Body = "message"});
+            var result = await controller.SendAsync(new MessageRequestDataModel { To = "1111", Body = "message" });
 
             // Assert
             var dataResult = Assert.IsType<MessageResultDataModel>(result);
@@ -40,13 +40,13 @@ namespace TwilioSampleApp.Tests.Controllers
             var controller = new MessageController(mockSender.Object, mockLogger.Object);
 
             // Act
-            var result = await controller.SendAsync(new MessageRequestDataModel {To = "1111", Body = "message"});
+            var result = await controller.SendAsync(new MessageRequestDataModel { To = "1111", Body = "message" });
 
             // Assert
             var dataResult = Assert.IsType<MessageResultDataModel>(result);
             Assert.Equal("error", dataResult.Status);
             Assert.StartsWith("Failed to send SMS", dataResult.Message);
         }
-        
+
     }
 }

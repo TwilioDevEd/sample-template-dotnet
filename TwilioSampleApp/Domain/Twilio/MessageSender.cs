@@ -1,4 +1,3 @@
-using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
@@ -23,7 +22,8 @@ namespace TwilioSampleApp.Domain.Twilio
 
         public async Task<string> SendSms(string to, string body)
         {
-            var messageResource = await MessageResource.CreateAsync(new PhoneNumber(to),
+            var messageResource = await MessageResource.CreateAsync(
+                to: new PhoneNumber(to),
                 from: new PhoneNumber(_configuration.PhoneNumber),
                 body: body);
             return messageResource.Sid;

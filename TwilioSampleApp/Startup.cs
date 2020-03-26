@@ -1,10 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -14,32 +8,39 @@ namespace TwilioSampleApp
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
 
         public IConfiguration Configuration { get; }
+
+        private readonly IHostEnvironment _env;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddSingleton<IMessageSender>(new MessageSender(
-                Configuration.GetSection("Twilio").Get<TwilioConfiguration>()));
+            if (!_env.IsEnvironment("testing"))
+            {
+                services.AddSingleton<IMessageSender>(new MessageSender(
+                    Configuration.GetSection("Twilio").Get<TwilioConfiguration>()));
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
+            if (_env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                // The default HSTS value is 30 days. You may want to change this for production scenarios,
+                // see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -54,11 +55,11 @@ namespace TwilioSampleApp
                 endpoints.MapControllerRoute(
                     name: "example",
                     pattern: "example",
-                    defaults: new {controller = "Example", action = "Get"});
+                    defaults: new { controller = "Example", action = "Get" });
                 endpoints.MapControllerRoute(
                     name: "message",
                     pattern: "send-sms",
-                    defaults: new {controller = "Message", action = "SendAsync"});
+                    defaults: new { controller = "Message", action = "Send" });
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

@@ -8,7 +8,7 @@ namespace TwilioSampleApp.Controllers
         [HttpGet]
         public ExampleDataModel Get()
         {
-            return new ExampleDataModel { Value = true};
+            return new ExampleDataModel { Value = true };
         }
     }
 }
