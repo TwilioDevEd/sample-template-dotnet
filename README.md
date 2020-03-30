@@ -4,7 +4,7 @@
  
 # Twilio Sample App Template
 
-[![Actions Status](https://github.com/twilio-labs/sample-template-nodejs/workflows/Node%20CI/badge.svg)](https://github.com/twilio-labs/sample-appointment-reminders/actions)
+[![Actions Status](https://github.com/twilio-labs/sample-template-dotnet/workflows/.NET%20Core%20CI/badge.svg)](https://github.com/twilio-labs/sample-template-dotnet/actions)
 
 ## About
 
@@ -118,7 +118,7 @@ dotnet test
 
 This template is open source and welcomes contributions. All contributions are subject to our [Code of Conduct](https://github.com/twilio-labs/.github/blob/master/CODE_OF_CONDUCT.md).
 
-[Visit the project on GitHub](https://github.com/twilio-labs/sample-template-nodejs)
+[Visit the project on GitHub](https://github.com/twilio-labs/sample-template-dotnet)
 
 ## License
 
