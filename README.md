@@ -31,14 +31,13 @@ We can render UML diagrams using [Mermaid](https://mermaidjs.github.io/).
 
 ## Features
 
-- .NET Core web server using [ASP.NET Core MVC](https://npm.im/express)
+- .NET Core web server using [ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/)
 - User interface to send SMS.
 - Unit tests using [`xUnit`](https://xunit.net/) and [`Moq`](https://www.nuget.org/packages/Moq/i)
 - End to End UI testing using [Selenium](https://www.selenium.dev/)
 - [Automated CI testing using GitHub Actions](/.github/workflows/dotnet.yml)
 - Formatting using [dotnet-format](https://www.nuget.org/packages/dotnet-format/)
 - Project specific environment variables using a [JsonConfigurationProvider](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#jcp) to load `twilio.json`.
-- One click deploy buttons for Heroku, Glitch and now.sh
 
 ## How to use it
 
