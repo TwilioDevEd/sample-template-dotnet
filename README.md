@@ -86,7 +86,7 @@ dotnet build
 3. Set your environment variables
 
 ```bash
-cp twilio.json.example twilio.json
+cp TwilioSampleApp/twilio.json.example TwilioSampleApp/twilio.json
 ```
 
 See [Twilio Account Settings](#twilio-account-settings) to locate the necessary environment variables.
@@ -97,7 +97,7 @@ See [Twilio Account Settings](#twilio-account-settings) to locate the necessary 
 dotnet run --project TwilioSampleApp
 ```
 
-5. Navigate to [http://localhost:5000](http://localhost:3000)
+5. Navigate to [http://localhost:5000](http://localhost:5000)
 
 That's it!
 
